@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import {Nav, Navbar, NavDropdown, Container, Form, FormControl, Button} from 'react-bootstrap'
 
+import CartWidget from './CartWidget'
+
 export default class Barra extends Component {
     render() {
         return (
@@ -31,12 +33,13 @@ export default class Barra extends Component {
                     </Nav>
                     <Form className="d-flex">
                         <FormControl
-                        type="search"
-                        placeholder="Buscar productos"
-                        className="me-2"
-                        aria-label="Search"
+                            type="search"
+                            placeholder="Buscar productos"
+                            className="me-2"
+                            aria-label="Search"
                         />
                         <Button variant="outline-success">Buscar</Button>
+                        <CartWidget />
                     </Form>
                     </Navbar.Collapse>
                 </Container>
