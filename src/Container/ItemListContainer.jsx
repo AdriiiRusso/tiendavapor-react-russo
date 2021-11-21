@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 
+import ItemList from '../Container/ItemList'
+
 const Saludo = (props) => {
     return (
-        <h1>Bienvenido a "{props.nombreApp}"</h1>
+        <>
+            <h1>Bienvenido a "{props.nombreApp}"</h1>
+            <ItemList />
+        </>
     );
 }
 
