@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react'
+import { Outlet, Link } from 'react-router-dom';
 
 import ItemCount from './ItemCount';
 
@@ -16,13 +16,16 @@ const Item = (productos) => {
                         <p class="card-text">{productos.item.descripcion}</p>
                         <p class="card-text"><small class="text-muted">{productos.item.categoria == 'mods' ? 'Equipo electrónico' : 'Atomizador'}</small></p>
                         <p class="card-text">U$D: {productos.item.precio}</p>
-                        <button className="btn btn-outline-primary btn-block mr-1">
-                            Detalle del producto
-                        </button>
+                        <Link to="/Detalle">
+                            <button className="btn btn-outline-primary btn-block mr-1">
+                                Detalle del producto
+                            </button>
+                        </Link>
                     </div>
                     <ItemCount stock={productos.item.stock} id={productos.item.id} />
                 </div>
             </div>
+            <Outlet />
         </>
     );
 }

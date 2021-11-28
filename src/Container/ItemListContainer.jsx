@@ -3,10 +3,9 @@ import { useEffect, useState } from 'react'
 
 import ItemList from '../Components/ItemList.jsx'
 import { Productos } from '../Backend/getProductos.js'
-import HelloWorld from '../Components/HelloWorld.jsx';
 
 const ItemListContainer = () =>{
-    const [productos, setProductos]= useState([]);
+    const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
    
     useEffect(() => {

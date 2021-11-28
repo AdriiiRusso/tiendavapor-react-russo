@@ -9,7 +9,7 @@ export default class Barra extends Component {
         return (
             <Navbar bg="dark" variant={"dark"} expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="#">Tienda Vapor</Navbar.Brand>
+                    <Navbar.Brand href="/">Tienda Vapor</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -17,13 +17,13 @@ export default class Barra extends Component {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Principal</Nav.Link>
-                        <Nav.Link href="#action2">A cerca de nosotros</Nav.Link>
+                        <Nav.Link href="/">Principal</Nav.Link>
+                        <Nav.Link href="/about">A cerca de nosotros</Nav.Link>
                         <NavDropdown title="Productos" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action3">Mods</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">Atos</NavDropdown.Item>
+                        <NavDropdown.Item href="/mods">Mods</NavDropdown.Item>
+                        <NavDropdown.Item href="/atos">Atos</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action5">
+                        <NavDropdown.Item href="/accesorios">
                             Accesorios
                         </NavDropdown.Item>
                         </NavDropdown>
