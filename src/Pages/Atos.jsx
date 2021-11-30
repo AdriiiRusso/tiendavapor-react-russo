@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import NavBar from '../Components/NavBar.jsx'
 import ItemListContainer from '../Container/ItemListContainer'
+import { Productos } from '../Backend/getProductosAtos.js'
 
 function Atos() {
   return (
@@ -8,7 +9,7 @@ function Atos() {
         <NavBar />
         <br />
         <h1>Atomizadores</h1>
-        <ItemListContainer />
+        <ItemListContainer productos={Productos} />
       </div>
   );
 }

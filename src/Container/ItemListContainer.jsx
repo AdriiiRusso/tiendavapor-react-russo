@@ -2,9 +2,8 @@ import React from 'react';
 import { useEffect, useState } from 'react'
 
 import ItemList from '../Components/ItemList.jsx'
-import { Productos } from '../Backend/getProductos.js'
 
-const ItemListContainer = () =>{
+const ItemListContainer = (props) =>{
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
    
@@ -12,13 +11,13 @@ const ItemListContainer = () =>{
         const promesa = new Promise ((aceptada, rechazada) => {
             setTimeout(()=> {
                 // Todo OK:
-                aceptada(Productos)
+                aceptada(props.productos)
                 // Todo MAL:
                 // rechazada('Productos no encontrados')
             }, 2000)
         })
         promesa.then((Productos) => {
-                setProductos(Productos)
+                setProductos(props.productos)
             })
             .catch((error)=>{
                 console.log('ERROR');
