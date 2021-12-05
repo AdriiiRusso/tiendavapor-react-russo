@@ -17,7 +17,7 @@ function App() {
         <Route path="/categorias/:parametroCategoria" element={<ItemListContainer titulo='Atomizadores'/>} />
         <Route path="/categorias/:parametroCategoria" element={<ItemListContainer titulo='Mods Electrónicos'/>} />
         <Route path="/categorias/:parametroCategoria" element={<ItemListContainer titulo='Accesorios'/>} />
-        <Route path="/Detalle/:parametroProducto" element={<ItemDetailContainer />} />
+        <Route path="/Detalle/:parametroId" element={<ItemDetailContainer />} />
       </Routes>  
     </BrowserRouter>
   )
