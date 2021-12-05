@@ -1,34 +1,44 @@
 import React from 'react';
 import { useEffect, useState } from 'react'
+import { Productos } from '../Backend/getProductos.js';
+import { useParams } from 'react-router-dom';
 
 import ItemList from '../Components/ItemList.jsx'
 
 const ItemListContainer = (props) =>{
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { parametroCategoria } = useParams();
    
     useEffect(() => {
         const promesa = new Promise ((aceptada, rechazada) => {
             setTimeout(()=> {
                 // Todo OK:
-                aceptada(props.productos)
+                aceptada(Productos)
                 // Todo MAL:
                 // rechazada('Productos no encontrados')
             }, 2000)
         })
         promesa.then((Productos) => {
-                setProductos(props.productos)
-            })
-            .catch((error)=>{
-                console.log('ERROR');
-            })
-            .finally( () => {
-                setLoading(false)
-            })
-    }, [])
+            if(!parametroCategoria) {
+                setProductos(Productos)
+            }
+            else {
+                setProductos(Productos.filter(producto => producto.categoria === parametroCategoria))
+            }
+        })
+        .catch((error)=>{
+            console.log('ERROR: ' + error);
+        })
+        .finally( () => {
+            setLoading(false)
+        })
+    }, [parametroCategoria])
 
     return(
-        <>
+        <div className='Center'>
+            <br />
+            <h1>{props.titulo}</h1>
             {
                 loading
                     ?
@@ -39,7 +49,7 @@ const ItemListContainer = (props) =>{
                     :
                 <ItemList lista={productos}/>
             }
-        </>
+        </div>
     )
 };
 

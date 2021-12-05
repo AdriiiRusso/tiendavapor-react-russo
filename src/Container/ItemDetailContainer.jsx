@@ -32,7 +32,8 @@ const ItemDetailContainer = () =>{
     }, 2000)
 
     return(
-        <>
+        <div className='Center'>
+            <br />
             {
                 loading
                     ?
@@ -43,7 +44,8 @@ const ItemDetailContainer = () =>{
                     :
                 <ItemDetail />
             }
-        </>
+            <br />
+        </div>
     )
 };
 

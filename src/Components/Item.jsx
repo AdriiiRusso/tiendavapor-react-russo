@@ -14,9 +14,9 @@ const Item = (productos) => {
                     <div class="card-body">
                         <h5 class="card-title">{productos.item.nombre}</h5>
                         <p class="card-text">{productos.item.descripcion}</p>
-                        <p class="card-text"><small class="text-muted">{productos.item.categoria == 'mods' ? 'Equipo electrónico' : 'Atomizador'}</small></p>
+                        <p class="card-text"><small class="text-muted">{productos.item.categoria === 'mods' ? 'Equipo electrónico' : 'Atomizador'}</small></p>
                         <p class="card-text">U$D: {productos.item.precio}</p>
-                        <Link to="/Detalle">
+                        <Link to={`/detalle/${productos.item.id}`}>
                             <button className="btn btn-outline-primary btn-block mr-1">
                                 Detalle del producto
                             </button>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import {Nav, Navbar, NavDropdown, Container, Form, FormControl, Button} from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 
 import CartWidget from './CartWidget'
 
@@ -9,7 +10,9 @@ export default class Barra extends Component {
         return (
             <Navbar bg="dark" variant={"dark"} expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="/">Tienda Vapor</Navbar.Brand>
+                    <Link to='/'>
+                        <Navbar.Brand href="/">Tienda Vapor</Navbar.Brand>
+                    </Link>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -17,15 +20,23 @@ export default class Barra extends Component {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="/">Principal</Nav.Link>
-                        <Nav.Link href="/about">A cerca de nosotros</Nav.Link>
+                        <Link to='/'>
+                            <Nav.Link href="/">Principal</Nav.Link>
+                        </Link>
+                        <Link to='/about'>
+                            <Nav.Link href="/about">A cerca de nosotros</Nav.Link>
+                        </Link>
                         <NavDropdown title="Productos" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="/mods">Mods</NavDropdown.Item>
-                        <NavDropdown.Item href="/atos">Atos</NavDropdown.Item>
+                        <Link to='categorias/mods'>
+                            <NavDropdown.Item href="categorias/mods">Mods</NavDropdown.Item>
+                        </Link>
+                        <Link to='categorias/atos'>    
+                            <NavDropdown.Item href="categorias/atos">Atos</NavDropdown.Item>
+                        </Link>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="/accesorios">
-                            Accesorios
-                        </NavDropdown.Item>
+                        <Link to='categorias/acc'>
+                            <NavDropdown.Item href="categorias/acc">Accesorios</NavDropdown.Item>
+                        </Link>
                         </NavDropdown>
                         {/*<Nav.Link href="#" disabled>
                         Link
