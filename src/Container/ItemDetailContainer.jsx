@@ -14,7 +14,7 @@ const ItemDetailContainer = () =>{
         const promesa = new Promise ((aceptada, rechazada) => {
             setTimeout(()=> {
                 // Todo OK:
-                aceptada(Productos.find(producto => producto.id === parametroId))
+                aceptada(Productos.find(producto => producto.id == parametroId))
                 // Todo MAL:
                 // rechazada('Productos no encontrados')
             }, 2000)
