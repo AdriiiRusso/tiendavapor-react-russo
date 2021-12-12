@@ -1,4 +1,3 @@
-
 # Tienda Vapor
 Proyecto para Coderhouse en React.
 

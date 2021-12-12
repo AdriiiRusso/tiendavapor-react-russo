@@ -1,32 +1,49 @@
-import './App.css'
-
-import 'bootstrap/dist/css/bootstrap.min.css'
-import NavBar from './Components/NavBar.jsx'
-import AboutUs from './Components/AboutUs.jsx'
-import ItemListContainer from './Container/ItemListContainer'
-import ItemDetailContainer from './Container/ItemDetailContainer'
-import Cart from './Components/Cart.jsx'
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import CartContextProvider from './Context/CartContext.jsx'
+import './App.css';
+import NavBar from './components/navBar/NavBar.jsx';
+import Footer from './components/footer/Footer';
+import ItemListContainer from './components/itemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { CartContext } from './components/context/CartContext'
+import { UserContext } from './components/context/UserContext'
+import AboutUs from './components/aboutUs/AboutUs';
+import Cart from './components/cart/cart';
 
 
 function App() {
   return (
-    <CartContextProvider>
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<ItemListContainer titulo='¡Bienvenido a Tienda Vapor!'/>} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/categorias/:parametroCategoria" element={<ItemListContainer titulo='Atomizadores'/>} />
-          <Route path="/categorias/:parametroCategoria" element={<ItemListContainer titulo='Mods Electrónicos'/>} />
-          <Route path="/categorias/:parametroCategoria" element={<ItemListContainer titulo='Accesorios'/>} />
-          <Route path="/Detalle/:parametroId" element={<ItemDetailContainer />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>  
-      </BrowserRouter>
-    </CartContextProvider>
-  )
+    <div className="App">
+      <UserContext>
+      <CartContext>
+        <BrowserRouter>
+          <NavBar/>
+          <Switch>
+            <Route exact path="/">
+              <ItemListContainer titulo="¡Bienvenidos a Tienda Vapor!"/>
+            </Route>
+            <Route exact path="/categoria/:cat">
+              <ItemListContainer/>
+            </Route>
+            <Route exact path="/producto/:productoId">
+              <ItemDetailContainer/>
+            </Route>
+            <Route path="/carrito">
+              <Cart value="Hola"/>
+            </Route>
+            <Route path="/about">
+              <AboutUs/>
+            </Route>
+            <Route path="*">
+              <Redirect to="/"/>
+            </Route>
+          </Switch>
+          <Footer/>
+        </BrowserRouter>
+      </CartContext>
+      </UserContext>
+    </div>
+  );
 }
 
-export default App
+export default App;
