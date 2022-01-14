@@ -2,12 +2,12 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID
+  apiKey: "AIzaSyCZBIxDzBadm9VAac69_oz-dODa_VQsCJ4",
+  authDomain: "tiendavapor-react-russo.firebaseapp.com",
+  projectId: "tiendavapor-react-russo",
+  storageBucket: "tiendavapor-react-russo.appspot.com",
+  messagingSenderId: "394245302417",
+  appId: "1:394245302417:web:b00e21c9473bfb22f17730"
 };
 
 firebase.initializeApp(firebaseConfig)
